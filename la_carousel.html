@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pé Quadrado – Los Angeles Luxury</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #111; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    display: flex; flex-direction: column;
+    overflow: hidden; position: relative;
+  }
+
+  :root {
+    --navy: #0F1628;
+    --white: #FFFFFF;
+    --gray: #8A93A8;
+    --orange: #E8620A;
+    --gold: #C9A84C;
+    --red-badge: #D02B2B;
+    --sand: #F5F0E8;
+    --warm-dark: #1A1008;
+    --amber: #D4920A;
+    --dark-text: #0F1628;
+    --smoke: #F2F2F0;
+  }
+
+  .city-badge {
+    background: var(--red-badge);
+    color: #fff; font-size: 14px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 4px; display: inline-block;
+  }
+
+  .logo-inline { display: flex; align-items: center; gap: 8px; }
+  .logo-box {
+    width: 38px; height: 38px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 7px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .logo-box.dark { border-color: rgba(15,22,40,0.22); }
+  .logo-p { font-size: 19px; font-weight: 800; color: #fff; }
+  .logo-p.dark { color: var(--dark-text); }
+  .logo-sup { font-size: 10px; font-weight: 700; color: var(--orange); position: absolute; top: 4px; right: 3px; }
+  .logo-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); line-height: 1.2; }
+  .logo-label.dark { color: rgba(15,22,40,0.42); }
+
+  .tag { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .tag.amber  { color: var(--amber); }
+  .tag.orange { color: var(--orange); }
+  .tag.dark   { color: var(--amber); }
+
+  /* ══ SLIDE 1 — CAPA ══ */
+  #s1 { background: var(--warm-dark); }
+
+  #s1 .visual { flex: 1; position: relative; overflow: hidden; }
+  #s1 .top-bar {
+    position: absolute; top: 40px; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 0 60px; z-index: 10;
+  }
+  #s1 .city-art { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+  #s1 .gradient-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
+    background: linear-gradient(to top, var(--warm-dark) 0%, transparent 100%);
+  }
+  #s1 .text-block {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 50px 60px; z-index: 10;
+  }
+  #s1 .kicker {
+    font-size: 13px; font-weight: 600; color: var(--amber);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;
+  }
+  #s1 h1 {
+    font-size: 68px; font-weight: 900; color: var(--white);
+    line-height: 1.0; letter-spacing: -2px; margin-bottom: 22px;
+  }
+  #s1 h1 em { color: var(--gold); font-style: normal; }
+  #s1 .sub { font-size: 21px; color: rgba(255,255,255,0.5); line-height: 1.55; max-width: 700px; }
+  #s1 .footer {
+    height: 76px; background: rgba(26,16,8,0.9);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; padding: 0 60px; gap: 16px;
+  }
+  #s1 .footer-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gray); }
+  #s1 .footer-tag { font-size: 13px; font-weight: 500; color: var(--gray); }
+
+  /* ══ SLIDE 2 — PANORAMA ══ */
+  #s2 { background: var(--sand); padding: 70px; justify-content: space-between; }
+
+  #s2 h2 { font-size: 52px; font-weight: 900; color: var(--dark-text); line-height: 1.0; letter-spacing: -1.5px; margin-bottom: 14px; }
+  #s2 .intro { font-size: 19px; color: #5A6478; line-height: 1.55; max-width: 700px; margin-bottom: 44px; }
+
+  #s2 .metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  #s2 .metric {
+    background: var(--white); border-radius: 18px; padding: 36px 28px;
+    display: flex; flex-direction: column; gap: 10px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  #s2 .metric-num { font-size: 56px; font-weight: 900; line-height: 1; letter-spacing: -2px; }
+  #s2 .metric:nth-child(1) .metric-num { color: var(--amber); }
+  #s2 .metric:nth-child(2) .metric-num { color: var(--orange); }
+  #s2 .metric:nth-child(3) .metric-num { color: var(--navy); }
+  #s2 .metric-title { font-size: 16px; font-weight: 700; color: var(--dark-text); line-height: 1.3; }
+  #s2 .metric-desc  { font-size: 14px; color: #6B7A8D; line-height: 1.4; }
+
+  #s2 .context-box {
+    background: var(--navy); border-radius: 18px; padding: 32px 36px;
+    display: flex; gap: 18px; align-items: center; margin-top: 20px;
+  }
+  #s2 .context-icon { font-size: 30px; }
+  #s2 .context-text { font-size: 18px; font-weight: 600; color: var(--white); line-height: 1.4; }
+  #s2 .context-text em { color: var(--gold); font-style: normal; }
+
+  #s2 .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 36px; border-top: 1px solid rgba(15,22,40,0.08); }
+
+  /* ══ SLIDE 3 — MEASURE ULA ══ */
+  #s3 { background: var(--navy); padding: 70px; justify-content: space-between; }
+
+  #s3 h2 { font-size: 52px; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 10px; }
+  #s3 .intro { font-size: 18px; color: rgba(255,255,255,0.45); margin-bottom: 44px; }
+
+  #s3 .ula-box {
+    background: rgba(232,98,10,0.1); border: 1px solid rgba(232,98,10,0.3);
+    border-radius: 20px; padding: 40px; margin-bottom: 24px;
+    display: flex; gap: 36px; align-items: center;
+  }
+  #s3 .ula-pct {
+    font-size: 90px; font-weight: 900; color: var(--orange); line-height: 1;
+    letter-spacing: -3px; min-width: 180px; text-align: center;
+  }
+  #s3 .ula-pct span { font-size: 36px; }
+  #s3 .ula-info {}
+  #s3 .ula-title { font-size: 24px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+  #s3 .ula-desc  { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+  #s3 .effects { display: flex; flex-direction: column; gap: 0; }
+  #s3 .effect-row {
+    display: flex; align-items: center; gap: 20px;
+    padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  #s3 .effect-row:last-child { border-bottom: none; }
+  #s3 .effect-dot { width: 8px; min-width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  #s3 .effect-text { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  #s3 .effect-text strong { color: var(--white); }
+
+  #s3 .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); }
+
+  /* ══ SLIDE 4 — SEGUROS ══ */
+  #s4 { background: #1A0E00; padding: 70px; justify-content: space-between; }
+
+  #s4 h2 { font-size: 52px; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 14px; }
+  #s4 .intro { font-size: 18px; color: rgba(255,255,255,0.4); margin-bottom: 44px; }
+
+  #s4 .fire-zones { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  #s4 .zone {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 24px 30px;
+  }
+  #s4 .zone-name { font-size: 20px; font-weight: 700; color: var(--white); }
+  #s4 .zone-badge {
+    font-size: 13px; font-weight: 700; padding: 6px 14px;
+    border-radius: 20px; letter-spacing: 0.5px;
+  }
+  #s4 .zone-badge.high { background: rgba(200,50,30,0.25); color: #FF7A6A; border: 1px solid rgba(200,50,30,0.4); }
+  #s4 .zone-badge.very-high { background: rgba(200,30,10,0.35); color: #FF5A4A; border: 1px solid rgba(200,30,10,0.5); }
+
+  #s4 .warning {
+    background: rgba(212,146,10,0.12); border: 1px solid rgba(212,146,10,0.3);
+    border-radius: 16px; padding: 28px 36px;
+    font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.55;
+  }
+  #s4 .warning strong { color: var(--amber); }
+
+  #s4 .tip {
+    background: rgba(255,255,255,0.04); border-radius: 14px; padding: 24px 30px;
+    font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.5;
+    margin-top: 16px;
+  }
+  #s4 .tip strong { color: rgba(255,255,255,0.8); }
+
+  #s4 .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  /* ══ SLIDE 5 — OPORTUNIDADE ══ */
+  #s5 { background: var(--smoke); padding: 70px; justify-content: space-between; }
+
+  #s5 h2 { font-size: 52px; font-weight: 900; color: var(--dark-text); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 14px; }
+  #s5 .intro { font-size: 19px; color: #5A6478; line-height: 1.55; margin-bottom: 44px; }
+
+  #s5 .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+
+  #s5 .col { display: flex; flex-direction: column; gap: 0; }
+  #s5 .col-header {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding-bottom: 16px; border-bottom: 2px solid;
+    margin-bottom: 0;
+  }
+  #s5 .col.pros .col-header { color: #2E7D32; border-color: #2E7D32; }
+  #s5 .col.cons .col-header { color: var(--orange); border-color: var(--orange); }
+
+  #s5 .item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid rgba(15,22,40,0.07);
+  }
+  #s5 .item:last-child { border-bottom: none; }
+  #s5 .item-dot { font-size: 18px; margin-top: 1px; }
+  #s5 .item-text { font-size: 16px; color: var(--dark-text); line-height: 1.45; }
+  #s5 .item-text span { display: block; font-size: 14px; color: #6B7A8D; margin-top: 3px; }
+
+  #s5 .verdict {
+    background: var(--navy); border-radius: 18px; padding: 32px 36px;
+    display: flex; gap: 18px; align-items: center; margin-top: 20px;
+  }
+  #s5 .verdict-icon { font-size: 28px; }
+  #s5 .verdict-text { font-size: 18px; font-weight: 600; color: var(--white); line-height: 1.4; }
+  #s5 .verdict-text em { color: var(--gold); font-style: normal; }
+
+  #s5 .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(15,22,40,0.08); }
+
+  /* ══ SLIDE 6 — TAKEAWAY ══ */
+  #s6 { background: var(--warm-dark); padding: 70px; justify-content: space-between; }
+
+  #s6 .big-text {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+  }
+
+  #s6 .eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 40px;
+  }
+
+  #s6 .quote {
+    font-size: 52px; font-weight: 800; color: var(--white);
+    line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 40px;
+  }
+  #s6 .quote em { color: var(--gold); font-style: normal; }
+
+  #s6 .cta-text {
+    font-size: 22px; color: rgba(255,255,255,0.5); line-height: 1.55; max-width: 700px;
+  }
+
+  #s6 .cta-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(212,146,10,0.15); border: 1px solid rgba(212,146,10,0.35);
+    border-radius: 40px; padding: 14px 28px; margin-top: 36px;
+    font-size: 16px; font-weight: 600; color: var(--amber);
+  }
+
+  #s6 .bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.07);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ SLIDE 1 — CAPA ══ -->
+<div class="slide" id="s1" data-document-role="page" data-label="Capa">
+  <div class="visual">
+    <svg class="city-art" viewBox="0 0 1080 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="laSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2A1A08"/>
+          <stop offset="50%" stop-color="#1A1008"/>
+          <stop offset="100%" stop-color="#0F0A04"/>
+        </linearGradient>
+        <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/>
+          <stop offset="30%" stop-color="#E8620A" stop-opacity="0.35"/>
+          <stop offset="55%" stop-color="#FFB347" stop-opacity="0.5"/>
+          <stop offset="80%" stop-color="#E8620A" stop-opacity="0.2"/>
+          <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0D0A06"/>
+          <stop offset="100%" stop-color="#080604"/>
+        </linearGradient>
+      </defs>
+      <rect width="1080" height="900" fill="url(#laSky)"/>
+      <!-- Sunset glow -->
+      <ellipse cx="540" cy="440" rx="700" ry="140" fill="url(#sunset)"/>
+      <!-- Hills silhouette -->
+      <path d="M0,600 Q100,480 180,520 Q260,450 350,490 Q420,430 500,470 Q580,410 650,455 Q720,400 800,440 Q870,390 950,420 Q1010,390 1080,410 L1080,900 L0,900 Z" fill="url(#hillGrad)" opacity="0.95"/>
+      <!-- Hollywood sign hills (lighter layer) -->
+      <path d="M0,650 Q80,600 160,630 Q240,580 310,610 Q380,560 440,590 Q490,560 540,580 Q600,545 670,565 Q740,530 810,555 Q880,520 950,545 Q1010,515 1080,535 L1080,900 L0,900 Z" fill="#080604" opacity="0.9"/>
+      <!-- Palm trees -->
+      <line x1="80" y1="750" x2="75" y2="540" stroke="#0A0703" stroke-width="14" stroke-linecap="round"/>
+      <ellipse cx="75" cy="550" rx="65" ry="30" fill="#0A0703" transform="rotate(-10 75 550)"/>
+      <ellipse cx="58" cy="535" rx="55" ry="24" fill="#0A0703" transform="rotate(18 58 535)"/>
+      <ellipse cx="92" cy="528" rx="50" ry="22" fill="#0A0703" transform="rotate(-25 92 528)"/>
+      <line x1="1000" y1="750" x2="1005" y2="560" stroke="#0A0703" stroke-width="12" stroke-linecap="round"/>
+      <ellipse cx="1005" cy="568" rx="58" ry="26" fill="#0A0703" transform="rotate(8 1005 568)"/>
+      <ellipse cx="1022" cy="555" rx="50" ry="22" fill="#0A0703" transform="rotate(-18 1022 555)"/>
+      <!-- Luxury estate suggestion -->
+      <rect x="380" y="560" width="320" height="140" rx="4" fill="#0C0906" opacity="0.9"/>
+      <rect x="395" y="545" width="290" height="25" fill="#0C0906" opacity="0.85"/>
+      <rect x="400" y="520" width="280" height="32" fill="#0C0906" opacity="0.8"/>
+      <!-- Windows warm glow -->
+      <rect x="410" y="580" width="18" height="14" fill="#D4920A" opacity="0.4"/>
+      <rect x="436" y="580" width="18" height="14" fill="#D4920A" opacity="0.25"/>
+      <rect x="462" y="580" width="18" height="14" fill="#D4920A" opacity="0.5"/>
+      <rect x="540" y="580" width="18" height="14" fill="#D4920A" opacity="0.3"/>
+      <rect x="566" y="580" width="18" height="14" fill="#D4920A" opacity="0.45"/>
+      <rect x="620" y="580" width="18" height="14" fill="#D4920A" opacity="0.35"/>
+      <!-- Pool reflection -->
+      <rect x="395" y="640" width="130" height="36" rx="6" fill="#0B3A4A" opacity="0.7"/>
+      <!-- Stars -->
+      <circle cx="150" cy="80" r="1.5" fill="white" opacity="0.5"/>
+      <circle cx="300" cy="50" r="1" fill="white" opacity="0.4"/>
+      <circle cx="500" cy="70" r="2" fill="white" opacity="0.35"/>
+      <circle cx="700" cy="40" r="1.5" fill="white" opacity="0.5"/>
+      <circle cx="900" cy="65" r="1" fill="white" opacity="0.4"/>
+    </svg>
+    <div class="gradient-overlay"></div>
+
+    <div class="top-bar">
+      <div class="city-badge">Los Angeles</div>
+      <div class="logo-inline">
+        <div class="logo-box">
+          <span class="logo-p">P</span>
+          <span class="logo-sup">2</span>
+        </div>
+        <span class="logo-label">Pé<br>Quadrado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <div class="kicker">Mercado Imobiliário · 23 Jun 2026</div>
+    <h1>Los Angeles:<br>luxo <em>resiliente</em>,<br>novos obstáculos</h1>
+    <p class="sub">Dois desafios concretos — um imposto pesado e uma crise de seguros — testam o mercado mais cinematográfico do mundo.</p>
+  </div>
+
+  <div class="footer">
+    <div class="logo-inline">
+      <div class="logo-box" style="width:30px;height:30px;">
+        <span class="logo-p" style="font-size:15px;">P</span>
+        <span class="logo-sup" style="font-size:8px;top:2px;right:2px;">2</span>
+      </div>
+      <span class="logo-label" style="font-size:11px;color:rgba(255,255,255,0.4);">Pé Quadrado</span>
+    </div>
+    <div class="footer-dot"></div>
+    <span class="footer-tag">Tendências · Regulação</span>
+    <div class="footer-dot"></div>
+    <span class="footer-tag">pédquadrado.com.br</span>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2 — PANORAMA ══ -->
+<div class="slide" id="s2" data-document-role="page" data-label="Panorama do mercado">
+  <div class="tag dark">O mercado em números</div>
+  <h2>LA luxury em 2026:<br>força com fricção</h2>
+  <p class="intro">O segmento de luxo segue ativo — mas dois fatores estruturais estão aumentando o custo e o esforço de comprar em Los Angeles.</p>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-num">+8,4%</div>
+      <div class="metric-title">Crescimento em vendas acima de US$ 2M</div>
+      <div class="metric-desc">O segmento de luxo lidera a apreciação — compradores de alta renda ignoram a pressão dos juros.</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">30–60</div>
+      <div class="metric-title">Dias médios no mercado para imóveis de luxo</div>
+      <div class="metric-desc">Mais tempo do que o pico de 2021–22 (14 dias). Compradores têm mais fôlego para decidir.</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">+3,6%</div>
+      <div class="metric-title">Apreciação prevista no preço mediano estadual</div>
+      <div class="metric-desc">Preço mediano da Califórnia deve atingir ~US$ 905.000 em 2026. Crescimento moderado e sustentável.</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    <div class="context-icon">🎬</div>
+    <div class="context-text">
+      Los Angeles continua sendo um mercado de referência global — mas exige <em>mais diligência do que Miami ou NYC</em>. Dois problemas concretos precisam entrar no cálculo antes da compra.
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo-inline">
+      <div class="logo-box dark">
+        <span class="logo-p dark">P</span>
+        <span class="logo-sup">2</span>
+      </div>
+      <span class="logo-label dark">Pé Quadrado</span>
+    </div>
+    <span style="font-size:13px;color:#8A93A8;">Fonte: C.A.R. · The Real Deal · Norada RE</span>
+  </div>
+</div>
+
+<!-- ══ SLIDE 3 — MEASURE ULA ══ -->
+<div class="slide" id="s3" data-document-role="page" data-label="Measure ULA">
+  <div>
+    <div class="tag amber">Problema #1</div>
+    <h2>O Measure ULA —<br>o "mansion tax" de LA</h2>
+    <p class="intro">Um imposto de transferência pesado que incide na venda de imóveis de alto valor em Los Angeles.</p>
+  </div>
+
+  <div class="ula-box">
+    <div class="ula-pct">5,5<span>%</span></div>
+    <div class="ula-info">
+      <div class="ula-title">Imposto de transferência sobre imóveis acima de US$ 5M</div>
+      <div class="ula-desc">O Measure ULA cobra 4% sobre imóveis vendidos entre US$ 5M e US$ 10M, e 5,5% acima de US$ 10M. É pago pelo vendedor — e está incorporado no cálculo de toda transação de luxo em LA.</div>
+    </div>
+  </div>
+
+  <div class="effects">
+    <div class="effect-row">
+      <div class="effect-dot"></div>
+      <div class="effect-text"><strong>Vendedores estão segurando imóveis.</strong> O custo de saída é alto. Muitos preferem não vender a pagar o imposto.</div>
+    </div>
+    <div class="effect-row">
+      <div class="effect-dot"></div>
+      <div class="effect-text"><strong>Liquidez no mercado de luxo reduziu.</strong> Menos transações acima de US$ 5M do que o mercado comportaria sem o imposto.</div>
+    </div>
+    <div class="effect-row">
+      <div class="effect-dot"></div>
+      <div class="effect-text"><strong>Desenvolvedores ajustam estratégia.</strong> Projetos de luxo revisam precificação, mix de unidades e timing de lançamento.</div>
+    </div>
+    <div class="effect-row">
+      <div class="effect-dot"></div>
+      <div class="effect-text"><strong>Mercado off-market cresce.</strong> Compradores e vendedores preferem transações privadas para evitar exposição e pressão do imposto.</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span style="font-size:13px;color:rgba(255,255,255,0.3);">Fonte: The Real Deal · BSH Building Luxury 2026</span>
+    <div class="city-badge">Los Angeles</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 4 — SEGUROS ══ -->
+<div class="slide" id="s4" data-document-role="page" data-label="Crise de seguros">
+  <div>
+    <div class="tag orange">Problema #2</div>
+    <h2>A crise de seguros<br>que ninguém esperava</h2>
+    <p class="intro">Depois dos incêndios devastadores, seguradoras simplesmente pararam de operar em partes de Los Angeles.</p>
+  </div>
+
+  <div class="fire-zones">
+    <div class="zone">
+      <div class="zone-name">Pacific Palisades</div>
+      <div class="zone-badge very-high">Risco muito alto · cobertura escassa</div>
+    </div>
+    <div class="zone">
+      <div class="zone-name">Hollywood Hills</div>
+      <div class="zone-badge high">Risco alto · poucas seguradoras disponíveis</div>
+    </div>
+    <div class="zone">
+      <div class="zone-name">Topanga Canyon</div>
+      <div class="zone-badge very-high">Risco muito alto · cobertura escassa</div>
+    </div>
+    <div class="zone">
+      <div class="zone-name">Malibu (áreas interiores)</div>
+      <div class="zone-badge high">Risco alto · custo de seguro elevado</div>
+    </div>
+  </div>
+
+  <div class="warning">
+    ⚠️ <strong>Por que isso importa para o comprador?</strong> Sem seguro, não há financiamento. Em muitos casos, mesmo compradores à vista não conseguem fazer uma transação segura sem cobertura adequada. <strong>O custo do seguro pode inviabilizar economicamente uma compra</strong> — mesmo com preço de imóvel atrativo.
+  </div>
+
+  <div class="tip">
+    💡 <strong>Regra prática:</strong> Peça cotações de seguro <em>antes</em> de retirar as contingências do contrato. Descobrir que não consegue seguro depois de ir non-refundable é um erro caro.
+  </div>
+
+  <div class="bottom">
+    <span style="font-size:13px;color:rgba(255,255,255,0.3);">Fonte: Haft Group RE · The Real Deal 2026</span>
+    <div class="city-badge">Los Angeles</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5 — PROS E CONTRAS ══ -->
+<div class="slide" id="s5" data-document-role="page" data-label="Oportunidade vs. risco">
+  <div class="tag dark">A visão do investidor</div>
+  <h2>LA ainda faz<br>sentido investir?</h2>
+  <p class="intro">O mercado é mais complexo — mas não inviável. A chave é saber onde e como entrar.</p>
+
+  <div class="pros-cons">
+    <div class="col pros">
+      <div class="col-header">✓ A favor</div>
+      <div class="item">
+        <div class="item-dot">🏆</div>
+        <div class="item-text">Mercado de referência global
+          <span>Comprar em LA tem valor de marca e liquidez internacional no longo prazo.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-dot">💰</div>
+        <div class="item-text">Segmento acima de US$ 2M cresceu +8,4%
+          <span>O luxo segue apreciando — e off-market oferece oportunidades reais.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-dot">🎬</div>
+        <div class="item-text">Demanda internacional diversificada
+          <span>Compradores do Oriente Médio, Ásia e Europa continuam ativos em Beverly Hills e Bel Air.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col cons">
+      <div class="col-header">✗ Contra</div>
+      <div class="item">
+        <div class="item-dot">💸</div>
+        <div class="item-text">Measure ULA onera a saída
+          <span>5,5% de imposto na venda de imóveis acima de US$ 10M é custo real de liquidez.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-dot">🔥</div>
+        <div class="item-text">Crise de seguros em zonas de risco
+          <span>Pacific Palisades, Hills e Malibu interior têm cobertura escassa e cara.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-dot">🏗️</div>
+        <div class="item-text">Reconstrução ainda em andamento
+          <span>Áreas devastadas pelos incêndios têm escassez de mão de obra e custos elevados.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-icon">🔑</div>
+    <div class="verdict-text">
+      LA recompensa o comprador <em>informado e paciente</em>. Quem entende o custo real da operação — imposto, seguro, tempo de mercado — encontra oportunidades que outros ignoram.
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo-inline">
+      <div class="logo-box dark">
+        <span class="logo-p dark">P</span>
+        <span class="logo-sup">2</span>
+      </div>
+      <span class="logo-label dark">Pé Quadrado</span>
+    </div>
+    <div class="city-badge">Los Angeles</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 6 — TAKEAWAY ══ -->
+<div class="slide" id="s6" data-document-role="page" data-label="Takeaway">
+  <div class="big-text">
+    <div class="eyebrow">Conclusão · Los Angeles 2026</div>
+    <div class="quote">
+      Los Angeles não é<br>um mercado para<br>quem compra<br><em>sem fazer a lição<br>de casa.</em>
+    </div>
+    <div class="cta-text">
+      Imposto de até 5,5% na saída. Seguradoras abandonando zonas inteiras. Mas o luxo continua apreciando e o capital global continua chegando. O diferencial está em saber exatamente onde entrar — e qual é o custo real da operação.
+    </div>
+    <div class="cta-pill">
+      💬 Você investiria em LA? Comenta abaixo →
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo-inline">
+      <div class="logo-box">
+        <span class="logo-p">P</span>
+        <span class="logo-sup">2</span>
+      </div>
+      <span class="logo-label">Pé Quadrado</span>
+    </div>
+    <span style="font-size:13px;color:rgba(255,255,255,0.35);">pédquadrado.com.br · Jun 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

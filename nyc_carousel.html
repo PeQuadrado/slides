@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pé Quadrado – NYC Pied-à-Terre Tax</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ─── COLORS ─── */
+  :root {
+    --navy: #0F1628;
+    --navy-mid: #1A2340;
+    --white: #FFFFFF;
+    --gray: #8A93A8;
+    --orange: #E8620A;
+    --gold: #C9A84C;
+    --red-badge: #D02B2B;
+    --light-bg: #F2F4F8;
+    --dark-text: #0F1628;
+  }
+
+  /* ─── LOGO ─── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-box {
+    width: 44px;
+    height: 44px;
+    border: 2.5px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .logo-p {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo-2 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--orange);
+    position: absolute;
+    top: 6px;
+    right: 5px;
+  }
+  .logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.2;
+  }
+
+  .logo-dark .logo-box {
+    border-color: rgba(15,22,40,0.35);
+  }
+  .logo-dark .logo-p {
+    color: var(--dark-text);
+  }
+  .logo-dark .logo-text {
+    color: rgba(15,22,40,0.55);
+  }
+
+  /* ─── CITY BADGE ─── */
+  .city-badge {
+    background: var(--red-badge);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 1 — CAPA
+  ══════════════════════════════════ */
+  #s1 {
+    background: var(--navy);
+    justify-content: space-between;
+  }
+
+  #s1 .photo-area {
+    position: relative;
+    flex: 1;
+    background: linear-gradient(180deg, #1A2340 0%, #0F1628 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #s1 .skyline-graphic {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  #s1 .photo-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to top, var(--navy) 0%, transparent 100%);
+  }
+
+  #s1 .top-bar {
+    position: absolute;
+    top: 40px; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 60px;
+    z-index: 10;
+  }
+
+  #s1 .headline-area {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    padding: 50px 60px;
+    z-index: 10;
+  }
+
+  #s1 .edition-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  #s1 h1 {
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  #s1 h1 span {
+    color: var(--orange);
+  }
+
+  #s1 .subhead {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  #s1 .bottom-bar {
+    height: 80px;
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    gap: 20px;
+    z-index: 10;
+    position: relative;
+  }
+
+  #s1 .date-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+  }
+
+  #s1 .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gray);
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 2 — O QUE É
+  ══════════════════════════════════ */
+  #s2 {
+    background: var(--light-bg);
+    padding: 70px 70px;
+    justify-content: space-between;
+  }
+
+  #s2 .s2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #s2 .slide-num {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(15,22,40,0.06);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin-top: -20px;
+  }
+
+  #s2 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  #s2 h2 {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--dark-text);
+    line-height: 1.0;
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+    max-width: 600px;
+  }
+
+  #s2 .intro-text {
+    font-size: 20px;
+    color: #4A5568;
+    line-height: 1.6;
+    max-width: 680px;
+    margin-bottom: 50px;
+  }
+
+  #s2 .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  #s2 .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 30px;
+    border-left: 5px solid var(--navy);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #s2 .card:nth-child(2) { border-left-color: var(--orange); }
+  #s2 .card:nth-child(3) { border-left-color: var(--gold); }
+  #s2 .card:nth-child(4) { border-left-color: #6C757D; }
+
+  #s2 .card-icon {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+
+  #s2 .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.3;
+  }
+
+  #s2 .card-body {
+    font-size: 15px;
+    color: #5A6478;
+    line-height: 1.5;
+  }
+
+  #s2 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(15,22,40,0.1);
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 3 — ALÍQUOTAS
+  ══════════════════════════════════ */
+  #s3 {
+    background: var(--navy);
+    padding: 70px;
+    justify-content: space-between;
+  }
+
+  #s3 .s3-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #s3 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  #s3 h2 {
+    font-size: 54px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    max-width: 580px;
+  }
+
+  #s3 .brackets {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 20px;
+    flex: 1;
+  }
+
+  #s3 .bracket {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #s3 .bracket-pct {
+    width: 180px;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 20px;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+    background: rgba(255,255,255,0.06);
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #s3 .bracket:nth-child(1) .bracket-pct { color: #6B9EFF; }
+  #s3 .bracket:nth-child(2) .bracket-pct { color: var(--orange); }
+  #s3 .bracket:nth-child(3) .bracket-pct { color: var(--gold); }
+
+  #s3 .pct-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    margin-left: 4px;
+    align-self: flex-end;
+    padding-bottom: 8px;
+  }
+
+  #s3 .bracket-info {
+    padding: 28px 36px;
+    flex: 1;
+  }
+
+  #s3 .bracket-range {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  #s3 .bracket-desc {
+    font-size: 16px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  #s3 .footnote {
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #s3 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 4 — QUEM PAGA
+  ══════════════════════════════════ */
+  #s4 {
+    background: var(--white);
+    padding: 70px;
+    justify-content: space-between;
+  }
+
+  #s4 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  #s4 h2 {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--dark-text);
+    line-height: 1.0;
+    letter-spacing: -1.5px;
+    margin-bottom: 40px;
+  }
+
+  #s4 .checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+
+  #s4 .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(15,22,40,0.08);
+  }
+
+  #s4 .check-row:last-child {
+    border-bottom: none;
+  }
+
+  #s4 .check-icon {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-top: 2px;
+  }
+
+  #s4 .check-icon.yes { background: #E8F5E9; }
+  #s4 .check-icon.no  { background: #FFEBEE; }
+
+  #s4 .check-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  #s4 .check-sub {
+    font-size: 16px;
+    color: #5A6478;
+    line-height: 1.5;
+  }
+
+  #s4 .highlight-box {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #s4 .hl-icon { font-size: 36px; }
+
+  #s4 .hl-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  #s4 .hl-text strong {
+    color: var(--orange);
+  }
+
+  #s4 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(15,22,40,0.08);
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 5 — IMPACTO REAL
+  ══════════════════════════════════ */
+  #s5 {
+    background: #1A0A00;
+    padding: 70px;
+    justify-content: space-between;
+  }
+
+  #s5 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  #s5 h2 {
+    font-size: 54px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+  }
+
+  #s5 .sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 50px;
+  }
+
+  #s5 .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+
+  #s5 .ex {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  #s5 .ex-prop {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  #s5 .ex-prop span {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  #s5 .ex-arrow {
+    font-size: 28px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  #s5 .ex-tax {
+    text-align: right;
+  }
+
+  #s5 .ex-amount {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  #s5 .ex-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  #s5 .warning-box {
+    background: rgba(232,98,10,0.12);
+    border: 1px solid rgba(232,98,10,0.3);
+    border-radius: 16px;
+    padding: 28px 36px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  #s5 .warning-box strong {
+    color: var(--orange);
+  }
+
+  #s5 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ══════════════════════════════════
+     SLIDE 6 — REAÇÃO DO MERCADO
+  ══════════════════════════════════ */
+  #s6 {
+    background: var(--light-bg);
+    padding: 70px;
+    justify-content: space-between;
+  }
+
+  #s6 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  #s6 h2 {
+    font-size: 54px;
+    font-weight: 900;
+    color: var(--dark-text);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 40px;
+  }
+
+  #s6 .reactions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  #s6 .react-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #s6 .react-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  #s6 .react-card:nth-child(1)::before { background: var(--navy); }
+  #s6 .react-card:nth-child(2)::before { background: var(--orange); }
+  #s6 .react-card:nth-child(3)::before { background: var(--gold); }
+  #s6 .react-card:nth-child(4)::before { background: #4CAF50; }
+
+  #s6 .react-emoji { font-size: 32px; }
+
+  #s6 .react-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.3;
+  }
+
+  #s6 .react-body {
+    font-size: 15px;
+    color: #5A6478;
+    line-height: 1.5;
+  }
+
+  #s6 .takeaway {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  #s6 .takeaway-icon { font-size: 34px; }
+
+  #s6 .takeaway-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  #s6 .takeaway-text em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  #s6 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(15,22,40,0.08);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     SLIDE 1 — CAPA
+══════════════════════════════════ -->
+<div class="slide" id="s1" data-document-role="page" data-label="Capa">
+  <div class="photo-area">
+    <!-- Abstract NYC skyline SVG -->
+    <svg class="skyline-graphic" viewBox="0 0 1080 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1E3060"/>
+          <stop offset="100%" stop-color="#0F1628"/>
+        </linearGradient>
+        <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3A5090" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#0F1628" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1080" height="900" fill="url(#skyGrad)"/>
+      <!-- Stars -->
+      <circle cx="100" cy="80" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="250" cy="50" r="1" fill="white" opacity="0.4"/>
+      <circle cx="400" cy="100" r="2" fill="white" opacity="0.5"/>
+      <circle cx="600" cy="60" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="800" cy="90" r="1" fill="white" opacity="0.3"/>
+      <circle cx="950" cy="40" r="2" fill="white" opacity="0.5"/>
+      <circle cx="700" cy="30" r="1" fill="white" opacity="0.7"/>
+      <!-- Moon glow -->
+      <circle cx="900" cy="120" r="60" fill="#2A4080" opacity="0.3"/>
+      <circle cx="900" cy="120" r="35" fill="#3A5090" opacity="0.25"/>
+      <!-- Buildings silhouette -->
+      <!-- Empire State-like -->
+      <rect x="480" y="200" width="60" height="500" fill="#0D1830" opacity="0.9"/>
+      <rect x="495" y="130" width="30" height="80" fill="#0D1830" opacity="0.9"/>
+      <rect x="508" y="90" width="6" height="50" fill="#0D1830" opacity="0.9"/>
+      <!-- Windows Empire -->
+      <rect x="490" y="220" width="8" height="10" fill="#FFE090" opacity="0.7"/>
+      <rect x="502" y="220" width="8" height="10" fill="#FFE090" opacity="0.5"/>
+      <rect x="490" y="240" width="8" height="10" fill="#FFE090" opacity="0.3"/>
+      <rect x="502" y="240" width="8" height="10" fill="#FFE090" opacity="0.8"/>
+      <rect x="490" y="260" width="8" height="10" fill="#FFE090" opacity="0.6"/>
+      <!-- Chrysler-like -->
+      <rect x="700" y="280" width="50" height="420" fill="#0D1830" opacity="0.85"/>
+      <polygon points="725,180 700,300 750,300" fill="#0D1830" opacity="0.85"/>
+      <rect x="720" y="240" width="10" height="50" fill="#0D1830" opacity="0.85"/>
+      <!-- One WTC-like -->
+      <polygon points="180,260 230,260 220,700 190,700" fill="#0D1830" opacity="0.9"/>
+      <polygon points="205,180 205,260 180,260" fill="#0D1830" opacity="0.9"/>
+      <rect x="200" y="150" width="10" height="40" fill="#0D1830" opacity="0.9"/>
+      <!-- Generic buildings -->
+      <rect x="0" y="400" width="100" height="500" fill="#0A1220" opacity="0.95"/>
+      <rect x="95" y="450" width="80" height="450" fill="#0A1220" opacity="0.9"/>
+      <rect x="170" y="380" width="70" height="520" fill="#0A1220" opacity="0.95"/>
+      <rect x="280" y="430" width="90" height="470" fill="#0A1220" opacity="0.85"/>
+      <rect x="365" y="480" width="70" height="420" fill="#0A1220" opacity="0.9"/>
+      <rect x="560" y="450" width="80" height="450" fill="#0A1220" opacity="0.9"/>
+      <rect x="635" y="410" width="50" height="490" fill="#0A1220" opacity="0.85"/>
+      <rect x="760" y="470" width="90" height="430" fill="#0A1220" opacity="0.9"/>
+      <rect x="845" y="430" width="70" height="470" fill="#0A1220" opacity="0.85"/>
+      <rect x="910" y="390" width="100" height="510" fill="#0A1220" opacity="0.9"/>
+      <rect x="1005" y="460" width="75" height="440" fill="#0A1220" opacity="0.85"/>
+      <!-- Windows generic -->
+      <rect x="10" y="420" width="8" height="6" fill="#FFE090" opacity="0.4"/>
+      <rect x="22" y="420" width="8" height="6" fill="#FFE090" opacity="0.3"/>
+      <rect x="10" y="434" width="8" height="6" fill="#FFE090" opacity="0.5"/>
+      <rect x="870" y="450" width="8" height="6" fill="#FFE090" opacity="0.4"/>
+      <rect x="882" y="450" width="8" height="6" fill="#FFE090" opacity="0.3"/>
+      <rect x="870" y="464" width="8" height="6" fill="#FFE090" opacity="0.6"/>
+      <!-- River reflection -->
+      <rect x="0" y="750" width="1080" height="150" fill="url(#glowGrad)" opacity="0.6"/>
+      <!-- Gold accent line -->
+      <line x1="0" y1="750" x2="1080" y2="750" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+    </svg>
+    <div class="photo-overlay"></div>
+
+    <div class="top-bar">
+      <div class="city-badge">Nova York</div>
+      <div class="logo">
+        <div class="logo-box">
+          <span class="logo-p">P</span>
+          <span class="logo-2">2</span>
+        </div>
+        <div class="logo-text">Pé<br>Quadrado</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline-area">
+    <div class="edition-label">Mercado Imobiliário · 23 Jun 2026</div>
+    <h1>Nova York<br>vai cobrar<br><span>mais</span> de quem<br>tem apê lá</h1>
+    <p class="subhead">O novo imposto anual sobre segundas residências de luxo entra em vigor em julho. O que muda para o investidor brasileiro.</p>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="logo" style="gap:8px;">
+      <div class="logo-box" style="width:32px;height:32px;">
+        <span class="logo-p" style="font-size:16px;">P</span>
+        <span class="logo-2" style="font-size:9px;top:3px;right:3px;">2</span>
+      </div>
+      <div class="logo-text" style="font-size:12px;color:rgba(255,255,255,0.5);">Pé Quadrado</div>
+    </div>
+    <div class="dot"></div>
+    <div class="date-tag">pédquadrado.com.br</div>
+    <div class="dot"></div>
+    <div class="date-tag">Política & Regulação</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLIDE 2 — O QUE É
+══════════════════════════════════ -->
+<div class="slide" id="s2" data-document-role="page" data-label="O que é">
+  <div class="s2-header">
+    <div>
+      <div class="tag">O que é</div>
+      <h2>O novo imposto<br>anual de NYC</h2>
+      <p class="intro-text">Nova York passou o <em>pied-à-terre tax</em> — um tributo recorrente sobre imóveis de alto valor que não são residência principal do dono.</p>
+    </div>
+    <div class="slide-num">02</div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <div class="card-title">Entra em vigor em 1º de julho de 2026</div>
+      <div class="card-body">Aprovado pelo estado de Nova York em maio de 2026. Válido por 5 anos, até junho de 2031.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <div class="card-title">Aplica-se a condos, co-ops e casas</div>
+      <div class="card-body">Qualquer imóvel residencial em Nova York que não seja a residência principal do proprietário.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <div class="card-title">É um imposto anual — não de compra</div>
+      <div class="card-body">Diferente do mansion tax, que é pago uma vez. Este é cobrado todo ano enquanto você tiver o imóvel.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌎</div>
+      <div class="card-title">Alvo: compradores não-residentes</div>
+      <div class="card-body">Inclui brasileiros, europeus, americanos que moram em outros estados — qualquer um que não pague imposto de renda em NYC.</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo logo-dark">
+      <div class="logo-box">
+        <span class="logo-p" style="color:#0F1628;font-size:22px;">P</span>
+        <span class="logo-2">2</span>
+      </div>
+      <div class="logo-text" style="color:rgba(15,22,40,0.5);">Pé Quadrado</div>
+    </div>
+    <div style="font-size:13px;color:#8A93A8;font-weight:500;">Política & Regulação · Nova York</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLIDE 3 — ALÍQUOTAS
+══════════════════════════════════ -->
+<div class="slide" id="s3" data-document-role="page" data-label="Alíquotas">
+  <div class="s3-top">
+    <div>
+      <div class="tag">As alíquotas</div>
+      <h2>Quanto você<br>vai pagar?</h2>
+    </div>
+    <div class="logo">
+      <div class="logo-box">
+        <span class="logo-p">P</span>
+        <span class="logo-2">2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="brackets">
+    <div class="bracket">
+      <div class="bracket-pct">
+        4<span class="pct-label">%</span>
+      </div>
+      <div class="bracket-info">
+        <div class="bracket-range">US$ 1M – US$ 3M</div>
+        <div class="bracket-desc">Imóveis com valor avaliado entre US$ 1 milhão e US$ 3 milhões pagarão 4% ao ano sobre esse valor.</div>
+      </div>
+    </div>
+    <div class="bracket">
+      <div class="bracket-pct">
+        5,25<span class="pct-label">%</span>
+      </div>
+      <div class="bracket-info">
+        <div class="bracket-range">US$ 3M – US$ 5M</div>
+        <div class="bracket-desc">Faixa intermediária. Imóveis com valor avaliado entre US$ 3 milhões e US$ 5 milhões.</div>
+      </div>
+    </div>
+    <div class="bracket">
+      <div class="bracket-pct">
+        6,5<span class="pct-label">%</span>
+      </div>
+      <div class="bracket-info">
+        <div class="bracket-range">Acima de US$ 5M</div>
+        <div class="bracket-desc">A faixa mais alta. Inclui a maioria dos imóveis de luxo em Manhattan — Midtown, Upper East Side, Tribeca.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    ⚠️ Atenção: o imposto é calculado sobre o <strong style="color:rgba(255,255,255,0.6)">valor avaliado pela prefeitura</strong> — que costuma ser bem menor que o preço real de mercado. Isso reduz (mas não elimina) o impacto.
+  </div>
+
+  <div class="bottom">
+    <div style="font-size:13px;color:rgba(255,255,255,0.3);">Fonte: CNBC · Cole Schotz · Dechert LLP</div>
+    <div class="city-badge">Nova York</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLIDE 4 — QUEM PAGA
+══════════════════════════════════ -->
+<div class="slide" id="s4" data-document-role="page" data-label="Quem paga">
+  <div class="tag">Quem paga</div>
+  <h2>O imposto se<br>aplica a você?</h2>
+
+  <div class="checks">
+    <div class="check-row">
+      <div class="check-icon yes">✅</div>
+      <div>
+        <div class="check-label">Sua residência principal é fora de Nova York</div>
+        <div class="check-sub">Vive no Brasil, em outro estado americano ou em qualquer outro país? O imposto se aplica.</div>
+      </div>
+    </div>
+    <div class="check-row">
+      <div class="check-icon yes">✅</div>
+      <div>
+        <div class="check-label">Possui condo ou co-op em Manhattan avaliado em US$ 1M+</div>
+        <div class="check-sub">Apartamentos acima de US$ 1 milhão de valor avaliado (equivale a ~US$ 5M no mercado real) estão dentro do escopo.</div>
+      </div>
+    </div>
+    <div class="check-row">
+      <div class="check-icon yes">✅</div>
+      <div>
+        <div class="check-label">Imóvel comprado via LLC ou trust</div>
+        <div class="check-sub">A estrutura jurídica não protege. A prefeitura já tem acesso aos dados de beneficiários reais.</div>
+      </div>
+    </div>
+    <div class="check-row">
+      <div class="check-icon no">❌</div>
+      <div>
+        <div class="check-label">Imóvel alugado por contrato de longo prazo</div>
+        <div class="check-sub">Se o imóvel for alugado por no mínimo 1 ano em contrato formal, pode ser isento. Uma saída possível — mas com implicações.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hl-icon">🇧🇷</div>
+    <div class="hl-text">Brasileiros com apartamento em Manhattan como segunda residência ou <strong>reserva de valor</strong> são diretamente impactados por esse novo custo anual.</div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo logo-dark">
+      <div class="logo-box">
+        <span class="logo-p" style="color:#0F1628;">P</span>
+        <span class="logo-2">2</span>
+      </div>
+      <div class="logo-text" style="color:rgba(15,22,40,0.5);">Pé Quadrado</div>
+    </div>
+    <div style="font-size:13px;color:#8A93A8;">pédquadrado.com.br</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLIDE 5 — IMPACTO REAL
+══════════════════════════════════ -->
+<div class="slide" id="s5" data-document-role="page" data-label="Impacto real">
+  <div>
+    <div class="tag">Na prática</div>
+    <h2>Quanto isso representa<br>em dinheiro real?</h2>
+    <p class="sub">Exemplos com propriedades reais em Manhattan</p>
+  </div>
+
+  <div class="examples">
+    <div class="ex">
+      <div class="ex-prop">
+        Apartamento em Manhattan
+        <span>Valor de mercado: US$ 10 milhões</span>
+      </div>
+      <div class="ex-arrow">→</div>
+      <div class="ex-tax">
+        <div class="ex-amount">~US$ 25K</div>
+        <div class="ex-label">por ano de imposto extra</div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-prop">
+        Penthouse em Midtown
+        <span>Valor de mercado: US$ 25 milhões</span>
+      </div>
+      <div class="ex-arrow">→</div>
+      <div class="ex-tax">
+        <div class="ex-amount">~US$ 250K</div>
+        <div class="ex-label">por ano de imposto extra</div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-prop">
+        Cobertura em Billionaires' Row
+        <span>Valor de mercado: US$ 50 milhões</span>
+      </div>
+      <div class="ex-arrow">→</div>
+      <div class="ex-tax">
+        <div class="ex-amount">~US$ 1,2M</div>
+        <div class="ex-label">por ano de imposto extra</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    💡 Importante: o imposto predial de muitos proprietários pode <strong>praticamente dobrar</strong>. Quem tem um apê de US$ 10M em Manhattan já pagava ~US$ 80–120K/ano de IPTU. Com o novo imposto, esse valor sobe para até US$ 190K.
+  </div>
+
+  <div class="bottom">
+    <div style="font-size:13px;color:rgba(255,255,255,0.3);">Estimativas baseadas em CNBC e BBG LLP</div>
+    <div class="city-badge">Nova York</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLIDE 6 — REAÇÃO DO MERCADO
+══════════════════════════════════ -->
+<div class="slide" id="s6" data-document-role="page" data-label="Reação do mercado">
+  <div>
+    <div class="tag">O que esperar</div>
+    <h2>Como o mercado<br>vai reagir?</h2>
+  </div>
+
+  <div class="reactions">
+    <div class="react-card">
+      <div class="react-emoji">📉</div>
+      <div class="react-title">Queda na demanda por segundas residências</div>
+      <div class="react-body">Compradores não-residentes vão recalcular o custo de manter um imóvel em NYC. Alguns vão vender ou deixar de comprar.</div>
+    </div>
+    <div class="react-card">
+      <div class="react-emoji">🏠</div>
+      <div class="react-title">Mais imóveis de luxo no mercado de aluguel</div>
+      <div class="react-body">Donos que não usam o imóvel regularmente vão preferir alugar por 1 ano+ para escapar do imposto — aumentando a oferta de aluguel de luxo.</div>
+    </div>
+    <div class="react-card">
+      <div class="react-emoji">🏗️</div>
+      <div class="react-title">Desenvolvedores revisam estratégia</div>
+      <div class="react-body">Projetos voltados para compradores internacionais e pied-à-terre enfrentarão absorção mais lenta. Precificação e mix de unidades serão revisados.</div>
+    </div>
+    <div class="react-card">
+      <div class="react-emoji">🌴</div>
+      <div class="react-title">Miami sai ganhando?</div>
+      <div class="react-body">Flórida não tem imposto de renda estadual e não tem pied-à-terre tax. O diferencial competitivo de Miami frente a NYC aumenta ainda mais.</div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-icon">🔑</div>
+    <div class="takeaway-text">
+      Nova York está tornando mais caro manter imóvel de luxo sem ser residente. Para o investidor brasileiro, o custo de oportunidade de <em>NYC vs. Miami</em> nunca foi tão claro.
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="logo logo-dark">
+      <div class="logo-box">
+        <span class="logo-p" style="color:#0F1628;">P</span>
+        <span class="logo-2">2</span>
+      </div>
+      <div class="logo-text" style="color:rgba(15,22,40,0.5);">Pé Quadrado</div>
+    </div>
+    <div style="font-size:13px;color:#8A93A8;">pédquadrado.com.br · Jun 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
